@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
 }
 apply from: "$rootDir/config/common_apply.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
 
 android {
     namespace 'com.jeremyliao.liveeventbus'
