@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply from: "$rootDir/config/common_apply.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+android {
+    namespace 'com.allo.musicplayer'
+}
+
+dependencies {
+
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation rootProject.ext.dependencies.ktx_core
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.design
+//    testImplementation 'junit:junit:4.+'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation project(path: ':utils')
+}

@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="ucrop_label_original">Түпнұсқа</string>
+    <string name="ucrop_label_edit_photo">Фотоны өңдеу</string>
+
+    <string name="ucrop_menu_crop">Қию</string>
+
+    <string name="ucrop_error_input_data_is_absent" translatable="false">Кіріс және шығыс Uri көрсетілуі керек</string>
+    <string name="ucrop_mutate_exception_hint" translatable="false">Сондықтан, бұл pre-L құрылғыларында жұмыс істеуі үшін қосымшаңыздағы (ucrop_color_toolbar_widget) түсті ресурсты ауыстырыңыз</string>
+    <string name="ucrop_rotate">Айналдыру</string>
+    <string name="ucrop_scale">Масштабтау</string>
+    <string name="ucrop_crop">Қию</string>
+    <string name="string_move_and_zoom">Жылжыту және үлкейту</string>
+    <string name="string_submit">Жіберу</string>
+
+
+</resources>

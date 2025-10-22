@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootDir/config/common_apply.gradle"
+apply from: "$rootDir/config/maven_publish.gradle"
+
+android {
+    namespace 'com.github.gzuliyujiang.dialog'
+}
+
+dependencies {
+
+    def dep = rootProject.ext.dependencies
+
+    implementation dep.ktx_core
+    implementation dep.appcompat
+    implementation dep.design
+    implementation dep.constraint_layout
+    implementation 'io.github.csdn-mobile:RoundView:1.8.0'
+}

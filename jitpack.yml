@@ -1,0 +1,19 @@
+jdk:
+  - openjdk17
+
+before_install:
+  - ./gradlew clean
+
+install:
+  - ./gradlew :utils:publishToMavenLocal
+  - ./gradlew :ucrop:publishToMavenLocal
+  - ./gradlew :search:publishToMavenLocal
+  - ./gradlew :database:publishToMavenLocal
+  - ./gradlew :Library:logwritelibrary:publishToMavenLocal
+  - ./gradlew :musicPlayer:publishToMavenLocal
+  - ./gradlew :panel-androidx:publishToMavenLocal
+  - ./gradlew :AndroidPicker:WheelPicker:publishToMavenLocal
+  - ./gradlew :AndroidPicker:Common:publishToMavenLocal
+  - ./gradlew :AndroidPicker:AddressPicker:publishToMavenLocal
+  - ./gradlew :AndroidPicker:WheelView:publishToMavenLocal
+  - ./gradlew :AndroidPicker:LiveEventBus:publishToMavenLocal

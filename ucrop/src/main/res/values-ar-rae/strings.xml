@@ -1,0 +1,13 @@
+<resources>
+    <string name="ucrop_label_original">الأصلي</string>
+    <string name="ucrop_label_edit_photo">تحرير الصورة</string>
+
+    <string name="ucrop_menu_crop">التقط</string>
+
+    <string name="ucrop_error_input_data_is_absent" translatable="false">يجب تحديد كل من URI المدخل والمخرج</string>
+    <string name="ucrop_mutate_exception_hint" translatable="false">لذلك، قم بتجاوز مورد اللون (ucrop_color_toolbar_widget) في تطبيقك لجعله يعمل على الأجهزة قبل الإصدار L</string>
+    <string name="ucrop_rotate">دوران</string>
+    <string name="ucrop_scale">تغيير الحجم</string>
+    <string name="ucrop_crop">القص</string>
+    <string name="string_move_and_zoom">التحرك والتكبير</string>
+</resources>

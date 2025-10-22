@@ -1,0 +1,1 @@
+plugins {    id 'com.android.library'    id 'kotlin-android'}apply from: "$rootDir/config/common_apply.gradle"apply from: "$rootDir/config/maven_publish.gradle"android {    namespace 'com.nky.database'}dependencies {    implementation fileTree(dir: 'libs', include: ['*.jar'])//    implementation rootProject.ext.dependencies.appcompat}

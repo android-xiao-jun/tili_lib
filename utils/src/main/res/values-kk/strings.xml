@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monday">Дүйсенбі</string> <!-- 星期一 -->
+    <string name="tuesday">Сейсенбі</string> <!-- 星期二 -->
+    <string name="wednesday">Сәрсенбі</string> <!-- 星期三 -->
+    <string name="thursday">Бейсенбі</string> <!-- 星期四 -->
+    <string name="friday">Жұма</string> <!-- 星期五 -->
+    <string name="saturday">Сенбі</string> <!-- 星期六 -->
+    <string name="sunday">Жексенбі</string> <!-- 星期日 -->
+    <string name="yesterday">Кеше</string> <!-- 昨日 -->
+    <string name="just_recently">Жақында</string> <!-- 刚刚 -->
+</resources>

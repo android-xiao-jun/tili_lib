@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_label_edit_photo">Editar Foto</string>
+
+    <string name="ucrop_menu_crop">Cortar</string>
+
+    <string name="ucrop_error_input_data_is_absent" translatable="false">Se deben proporcionar las URI de entrada y salida</string>
+    <string name="ucrop_mutate_exception_hint" translatable="false">Por lo tanto, para que funcione en dispositivos pre-L, reemplaza el recurso de color (ucrop_color_toolbar_widget) en tu aplicación</string>
+    <string name="ucrop_rotate">Rotar</string>
+    <string name="ucrop_scale">Escalar</string>
+    <string name="ucrop_crop">Cortar</string>
+    <string name="string_move_and_zoom">Mover y ampliar</string>
+    <string name="string_submit">Enviar</string>
+
+</resources>

@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply from: "$rootDir/config/common_apply.gradle"
+
+android {
+    namespace 'com.jeremyliao.liveeventbus'
+
+}
+
+dependencies {
+
+    def dep = rootProject.ext.dependencies
+
+    implementation dep.ktx_core
+    implementation dep.appcompat
+    implementation dep.ktx_lifecycle
+    implementation dep.ktx_livedata
+
+}

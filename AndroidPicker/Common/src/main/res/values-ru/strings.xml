@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="string_sure">Подтвердить</string> <!-- 确认 -->
+    <string name="string_cancel">Отмена</string> <!-- 取消 -->
+</resources>

@@ -1,0 +1,64 @@
+<!--
+  ~ Copyright (c) 2016-present 贵州纳雍穿青人李裕江<1032694760@qq.com>
+  ~
+  ~ The software is licensed under the Mulan PSL v2.
+  ~ You can use this software according to the terms and conditions of the Mulan PSL v2.
+  ~ You may obtain a copy of Mulan PSL v2 at:
+  ~     http://license.coscl.org.cn/MulanPSL2
+  ~ THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR
+  ~ PURPOSE.
+  ~ See the Mulan PSL v2 for more details.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="14dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialog_modal_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/string_cancel"
+        android:textColor="#FF888888"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialog_modal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#181818"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_modal_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dialog_modal_cancel"
+        tools:text="@android:string/untitled" />
+
+    <net.csdn.roundview.RoundTextView
+        android:id="@+id/dialog_modal_ok"
+        android:layout_width="wrap_content"
+        android:minWidth="60dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        app:rRadius="24dp"
+        android:text="@string/string_sure"
+        app:layout_constraintTop_toTopOf="@id/dialog_modal_cancel"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_modal_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:textColor="#3d3c3c"
+        android:background="#F7B500"
+        android:layout_height="28dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

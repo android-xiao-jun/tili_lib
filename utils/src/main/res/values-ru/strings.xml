@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="monday">Понедельник</string> <!-- 星期一 -->
+    <string name="tuesday">Вторник</string> <!-- 星期二 -->
+    <string name="wednesday">Среда</string> <!-- 星期三 -->
+    <string name="thursday">Четверг</string> <!-- 星期四 -->
+    <string name="friday">Пятница</string> <!-- 星期五 -->
+    <string name="saturday">Суббота</string> <!-- 星期六 -->
+    <string name="sunday">Воскресенье</string> <!-- 星期日 -->
+    <string name="yesterday">Вчера</string> <!-- 昨日 -->
+    <string name="just_recently">Только что</string> <!-- 刚刚 -->
+</resources>

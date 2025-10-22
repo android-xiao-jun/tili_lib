@@ -1,0 +1,79 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "$rootDir/config/config.gradle"
+
+
+buildscript {
+    ext.kotlin_version = "1.9.21"
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//        maven {
+//            url 'http://developer.huawei.com/repo/'
+//            allowInsecureProtocol = true
+//        }
+        maven { url 'https://repo1.maven.org/maven2/' }     // 新的友盟仓库
+
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
+//        maven {
+//            url 'http://192.168.12.106:8081/nexus/repository/maven-public/'
+//            allowInsecureProtocol = true
+//        }   // 大数据私有仓库
+        google()
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url 'https://mvn.shalltry.com/repository/maven-public/'}
+
+        /// BarmakAsr 语音转文字私有仓库
+//        maven {
+//            url "http://192.168.12.106:8081/nexus/repository/maven-releases/"
+//            allowInsecureProtocol = true
+//        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.4.0'
+//        classpath 'com.android.tools.build:gradle:8.5.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.1'
+//        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath "com.github.jadepeakpoet.ARouter:arouter-register:1.0.3"
+        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'com.meituan.android.walle:plugin:1.1.7'
+//        classpath 'com.huawei.agconnect:agcp:1.4.1.300'
+    }
+
+    ext {
+        //R8混淆开启之后解决APP打开类加载时找不到类的问题,指定文件来放置启动时需要优先加载的类
+        MAINDEXLIST = 'maindexlist.txt'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//        maven {
+//            url 'http://developer.huawei.com/repo/'
+//            allowInsecureProtocol = true
+//        }
+
+        maven { url 'https://repo1.maven.org/maven2/' }     // 新的友盟仓库
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://www.jitpack.io' }
+//        maven {
+//            url 'http://192.168.12.106:8081/nexus/repository/maven-public/'
+//            allowInsecureProtocol = true
+//        }   // 大数据私有仓库
+        google()
+        mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url 'https://mvn.shalltry.com/repository/maven-public/'}
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
