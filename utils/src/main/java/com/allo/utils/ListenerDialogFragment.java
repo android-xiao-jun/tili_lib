@@ -1,6 +1,7 @@
 package com.allo.utils;
 
 import android.content.DialogInterface;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +39,8 @@ public class ListenerDialogFragment implements LifecycleEventObserver, DialogInt
     private DialogFragment mDialog;
     private final FragmentManager mFragmentManager;
     private boolean isAddDelayShow = false;
+    private boolean isAddStackShow = false;
+    private String uniqueTag = getClass().getSimpleName();
 
     public ListenerDialogFragment(DialogFragment dialog, FragmentManager fragmentManager) {
         mDialog = dialog;
@@ -50,6 +53,30 @@ public class ListenerDialogFragment implements LifecycleEventObserver, DialogInt
         mFragmentManager = fragmentManager;
         this.weight = weight;
         mDialog.getLifecycle().addObserver(this);
+    }
+
+    /**
+     * 设置唯一属性
+     * @param uniqueTag tag
+     */
+    public void setUniqueTag(@Nullable String uniqueTag) {
+        this.uniqueTag = uniqueTag;
+    }
+
+    public String getUniqueTag() {
+        return uniqueTag;
+    }
+
+    public boolean isAddStackShow() {
+        return isAddStackShow;
+    }
+
+    /**
+     * 设置堆叠显示  默认false 一个一个显示
+     * @param addStackShow
+     */
+    public void setAddStackShow(boolean addStackShow) {
+        isAddStackShow = addStackShow;
     }
 
     /**
@@ -69,10 +96,14 @@ public class ListenerDialogFragment implements LifecycleEventObserver, DialogInt
             if (mFragmentManager.isDestroyed()) {
                 return;
             }
+            String tag = this.uniqueTag;
+            if (TextUtils.isEmpty(tag)) {
+                tag = this.getClass().getSimpleName();
+            }
 
             mFragmentManager.beginTransaction()
                     .remove(mDialog)
-                    .add(mDialog, this.getClass().getSimpleName())
+                    .add(mDialog, tag)
                     .commitAllowingStateLoss();
 
             isAddDelayShow = true;
@@ -86,6 +117,28 @@ public class ListenerDialogFragment implements LifecycleEventObserver, DialogInt
         if (mDialog != null) {
             mDialog.dismissAllowingStateLoss();
         }
+    }
+
+    /**
+     * 是否相等
+     */
+    public boolean equalDialog(DialogFragment dialogFragment) {
+        return dialogFragment == mDialog;
+    }
+
+    /**
+     * 是否是这个类
+     */
+    public boolean equalClass(Class<?> clz) {
+        if (mDialog == null) {
+            return false;
+        }
+        return clz == mDialog.getClass();
+    }
+
+    @Nullable
+    public DialogFragment getInnerDialog() {
+        return mDialog;
     }
 
     public int getWeight() {

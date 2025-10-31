@@ -1,7 +1,10 @@
 package com.allo.utils;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -71,6 +74,34 @@ public class DialogFragmentListenerUtils implements LifecycleEventObserver, List
     }
 
     /**
+     * 排队显示 Dialog，，unque
+     */
+    public boolean addShowUnique(ListenerDialogFragment dialog, boolean unique) {
+        for (ListenerDialogFragment old : mDialogs) {
+            if (unique && TextUtils.equals(old.getUniqueTag(),dialog.getUniqueTag())){
+                //已经
+                return true;
+            }
+        }
+        addShow(dialog);
+        return false;
+    }
+
+    /**
+     * 是否已经显示了
+     * @param uniqueTag
+     */
+    public boolean isShow(String uniqueTag) {
+        for (ListenerDialogFragment old : mDialogs) {
+            if (TextUtils.equals(old.getUniqueTag(),uniqueTag)){
+                //已经
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * 排队显示 Dialog
      */
     public void addShow(ListenerDialogFragment dialog) {
@@ -80,6 +111,10 @@ public class DialogFragmentListenerUtils implements LifecycleEventObserver, List
             } else {
                 return;
             }
+        }
+        if (dialog.isAddStackShow()){
+            dialog.show();
+            return;
         }
         mDialogs.add(dialog);
 
@@ -114,6 +149,43 @@ public class DialogFragmentListenerUtils implements LifecycleEventObserver, List
             firstDialog.dismiss();
         }
         mDialogs.clear();
+    }
+
+
+    /**
+     * 当前弹窗列表是否有这个类型弹窗
+     * @param clz
+     * @return
+     */
+    @Nullable
+    public ListenerDialogFragment hasDialog(Class<?> clz) {
+        if (mDialogs.isEmpty()) {
+            return null;
+        }
+        for (ListenerDialogFragment nextDialog : mDialogs) {
+            if (nextDialog.equalClass(clz)) {
+                return nextDialog;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 当前弹窗列表是否有这个弹窗
+     * @param dialogFragment
+     * @return
+     */
+    @Nullable
+    public ListenerDialogFragment hasDialog(DialogFragment dialogFragment) {
+        if (mDialogs.isEmpty()) {
+            return null;
+        }
+        for (ListenerDialogFragment nextDialog : mDialogs) {
+            if (nextDialog.equalDialog(dialogFragment)) {
+                return nextDialog;
+            }
+        }
+        return null;
     }
 
     @Override
