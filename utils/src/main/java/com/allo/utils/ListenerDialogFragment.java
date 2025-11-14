@@ -100,6 +100,7 @@ public class ListenerDialogFragment implements LifecycleEventObserver, DialogInt
             if (TextUtils.isEmpty(tag)) {
                 tag = this.getClass().getSimpleName();
             }
+            mDialog.getLifecycle().addObserver(this);
 
             mFragmentManager.beginTransaction()
                     .remove(mDialog)
