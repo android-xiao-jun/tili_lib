@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * desc:控制 dialog 弹窗先后顺序 需要配合 {@link ListenerDialog} 监听包装类使用
+ * desc:控制 dialog 弹窗先后顺序 需要配合 {@link ListenerDialogFragment} 监听包装类使用
  * verson:
  * create by zj on 2023/06/19 09:59
  * update by zj on 2023/06/19 09:59
