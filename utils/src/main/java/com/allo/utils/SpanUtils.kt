@@ -560,7 +560,7 @@ class SpanUtils() {
      */
     fun setSpans(vararg spans: Any): SpanUtils {
         if (spans.isNotEmpty()) {
-            this.spans = arrayOf(spans)
+            this.spans = arrayOf(*spans)
         }
         return this
     }
