@@ -14,6 +14,7 @@ include ':search'
 include ':panel-androidx'
 //include ':flowcamera'
 include ':ucrop'
+include ':record'
 //
 include ':AndroidPicker:WheelPicker'
 include ':AndroidPicker:Common'

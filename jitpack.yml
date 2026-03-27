@@ -9,6 +9,7 @@ install:
   - ./gradlew :ucrop:publishToMavenLocal
   - ./gradlew :search:publishToMavenLocal
   - ./gradlew :database:publishToMavenLocal
+  - ./gradlew :record:publishToMavenLocal
   - ./gradlew :Library:logwritelibrary:publishToMavenLocal
   - ./gradlew :musicPlayer:publishToMavenLocal
   - ./gradlew :panel-androidx:publishToMavenLocal
