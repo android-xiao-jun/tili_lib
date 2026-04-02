@@ -41,6 +41,7 @@ internal class PageTrackManager private constructor(
         val recordId = IdGenerator.newRecordId()
         val pageName = resolvePageName(activity)
         val activityName = activity.javaClass.name
+        val extra = resolveExtra(activity)
 
         val session = ActiveSession(
             recordId = recordId,
@@ -67,7 +68,7 @@ internal class PageTrackManager private constructor(
                     pageName = pageName,
                     activityName = activityName,
                     startTime = now,
-                    extra = null
+                    extra = extra
                 )
             )
         }
@@ -161,6 +162,14 @@ internal class PageTrackManager private constructor(
             activity.pageTrackName()
         } else {
             activity.javaClass.simpleName
+        }
+    }
+
+    private fun resolveExtra(activity: Activity): String? {
+        return if (activity is PageTrackExtraProvider) {
+            activity.pageTrackExtra()
+        } else {
+            null
         }
     }
 
