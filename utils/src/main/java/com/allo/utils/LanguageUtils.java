@@ -395,6 +395,8 @@ public class LanguageUtils {
             return "ru";
         } else if (isEs()) {
             return "es";
+        }  else if (isMs()) {
+            return "ms";
         } else {
             return "en";
         }
@@ -424,6 +426,14 @@ public class LanguageUtils {
         return locale != null && locale.getLanguage().equals("ru");
     }
 
+    public static boolean isMs() {
+        Locale locale = getAppliedLanguage();
+        if (locale == null) {
+            locale = getAppContextLanguage();
+        }
+        return locale != null && locale.getLanguage().equals("ms");
+    }
+
     /**
      * 图片放到 assets 文件夹中，
      * 哎，为啥不放远程，，貌似说是服务器加载慢？很多人头像都没显示出来？占用带宽？
@@ -436,7 +446,7 @@ public class LanguageUtils {
     public static String getAssets(String name, String prefix, String dir) {
         String localLanguage = LanguageUtils.getLocalLanguage();
         String prefixLang = "default";
-        if ("kk".equals(localLanguage) || "ru".equals(localLanguage) || "es".equals(localLanguage)) {
+        if ("kk".equals(localLanguage) || "ru".equals(localLanguage) || "es".equals(localLanguage) || "ms".equals(localLanguage)) {
             prefixLang = localLanguage;
         }
         if (prefix == null) {
