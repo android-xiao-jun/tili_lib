@@ -1174,8 +1174,16 @@ class SpanUtils() {
 
         constructor(d: Drawable, verticalAlignment: Int) : super(verticalAlignment) {
             mDrawable = d
+            var w = d.bounds.right
+            if (w <= 0) {
+                w = d.intrinsicWidth
+            }
+            var h = d.bounds.bottom
+            if (h <= 0) {
+                h = d.intrinsicHeight
+            }
             mDrawable?.run {
-                setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+                setBounds(0, 0, w, h)
             }
         }
 
