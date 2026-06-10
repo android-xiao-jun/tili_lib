@@ -21,6 +21,7 @@ public class SPUtilsProvider extends ContentProvider {
     public boolean onCreate() {
         Application app = (Application) getContext().getApplicationContext();
         SPUtils.init(app);
+        LanguageUtils.init(app);
         return false;
     }
 

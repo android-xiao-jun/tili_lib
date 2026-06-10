@@ -28,10 +28,14 @@ public class SPUtils {
      * @param app The Application object.
      */
     public static void init(@NonNull final Context app) {
-        if (app == null) return;
+        context = app;
+    }
+
+    private static Context getContext(){
         if (context == null) {
-            context = app.getApplicationContext();
+            context = Utils.getApp();
         }
+        return context;
     }
 
     /**
@@ -90,10 +94,7 @@ public class SPUtils {
     }
 
     private SPUtils(final String spName, final int mode) {
-        if (context == null) {
-            context = Utils.getApp();
-        }
-        sp = context.getSharedPreferences(spName, mode);
+        sp = getContext().getSharedPreferences(spName, mode);
     }
 
     /**
