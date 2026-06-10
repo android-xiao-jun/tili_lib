@@ -1,6 +1,7 @@
 package com.allo.utils;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.ArrayMap;
@@ -14,8 +15,24 @@ import java.util.Set;
 @SuppressLint("ApplySharedPref")
 public class SPUtils {
     private static final Map<String, SPUtils> SP_UTILS_MAP = new ArrayMap<>();
+    @SuppressLint("StaticFieldLeak")
+    private static Context context;
 
     private final SharedPreferences sp;
+
+    /**
+     * Init SPUtils.
+     * <p>Called automatically by {@link SPUtilsProvider},
+     * or can be called manually in Application.onCreate().</p>
+     *
+     * @param app The Application object.
+     */
+    public static void init(@NonNull final Context app) {
+        if (app == null) return;
+        if (context == null) {
+            context = app.getApplicationContext();
+        }
+    }
 
     /**
      * Return the single {@link SPUtils} instance
@@ -73,8 +90,10 @@ public class SPUtils {
     }
 
     private SPUtils(final String spName, final int mode) {
-        sp = Utils.getApp().getSharedPreferences(spName, mode);
-
+        if (context == null) {
+            context = Utils.getApp();
+        }
+        sp = context.getSharedPreferences(spName, mode);
     }
 
     /**
