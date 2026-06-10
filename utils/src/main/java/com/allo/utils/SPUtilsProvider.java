@@ -3,6 +3,7 @@ package com.allo.utils;
 import android.app.Application;
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
@@ -19,9 +20,9 @@ public class SPUtilsProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        Application app = (Application) getContext().getApplicationContext();
-        SPUtils.init(app);
-        LanguageUtils.init(app);
+        Context context = getContext();
+        SPUtils.init(context);
+        LanguageUtils.init(context);
         return false;
     }
 
