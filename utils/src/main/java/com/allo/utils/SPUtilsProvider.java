@@ -23,7 +23,7 @@ public class SPUtilsProvider extends ContentProvider {
         Context context = getContext();
         SPUtils.init(context);
         LanguageUtils.init(context);
-        return false;
+        return true;
     }
 
     @Nullable
