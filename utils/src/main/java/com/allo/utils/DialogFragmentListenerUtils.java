@@ -67,8 +67,10 @@ public class DialogFragmentListenerUtils implements LifecycleEventObserver, List
         ListenerDialogFragment lastDialog = mDialogs.get(0);
 
         if (!enable && lastDialog.isShowing()) {
+            lastDialog.removeOnDismissListener(this);
             lastDialog.dismiss();
         } else if (enable && !lastDialog.isShowing()) {
+            lastDialog.addOnDismissListener(this);
             lastDialog.show();
         }
     }
