@@ -8,6 +8,7 @@ install:
   - ./gradlew :utils:publishToMavenLocal
   - ./gradlew :ucrop:publishToMavenLocal
   - ./gradlew :search:publishToMavenLocal
+  - ./gradlew :barmak-asrsdk:publishToMavenLocal
   - ./gradlew :database:publishToMavenLocal
   - ./gradlew :record:publishToMavenLocal
   - ./gradlew :Library:logwritelibrary:publishToMavenLocal

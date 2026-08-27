@@ -6,6 +6,7 @@ include ':utils'
 //include ':data'
 //include ':view'
 include ':search'
+include ':barmak-asrsdk'
 //include ':platform'
 ////include ':app'
 //include ':mvvmLib'
@@ -23,4 +24,4 @@ include ':AndroidPicker:WheelView'
 include ':AndroidPicker:LiveEventBus'
 include ':Library:logwritelibrary'
 
-rootProject.name = "Tili"
+rootProject.name = "Tili_lib"
