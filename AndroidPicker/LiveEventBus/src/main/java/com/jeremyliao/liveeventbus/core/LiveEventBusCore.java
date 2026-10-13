@@ -365,14 +365,14 @@ public final class LiveEventBusCore {
 
         @MainThread
         private void postInternal(T value) {
-            logger.log(Level.INFO, "post: " + value + " with key: " + key);
+            logger.log(Level.INFO, "post: %s with key: %s", value, key);
             liveData.setValue(value);
         }
 
         @MainThread
         private void broadcastInternal(T value, boolean foreground, boolean onlyInApp) {
-            logger.log(Level.INFO, "broadcast: " + value + " foreground: " + foreground +
-                    " with key: " + key);
+            logger.log(Level.INFO, "broadcast: %s foreground: %s with key: %s",
+                    value, foreground, key);
             Application application = AppUtils.getApp();
             if (application == null) {
                 logger.log(Level.WARNING, "application is null, you can try setContext() when config");
@@ -401,16 +401,16 @@ public final class LiveEventBusCore {
             ObserverWrapper<T> observerWrapper = new ObserverWrapper<>(observer);
             observerWrapper.preventNextEvent = liveData.getVersion() > ExternalLiveData.START_VERSION;
             liveData.observe(owner, observerWrapper);
-            logger.log(Level.INFO, "observe observer: " + observerWrapper + "(" + observer + ")"
-                    + " on owner: " + owner + " with key: " + key);
+            logger.log(Level.INFO, "observe observer: %s(%s) on owner: %s with key: %s",
+                    observerWrapper, observer, owner, key);
         }
 
         @MainThread
         private void observeStickyInternal(@NonNull LifecycleOwner owner, @NonNull Observer<T> observer) {
             ObserverWrapper<T> observerWrapper = new ObserverWrapper<>(observer);
             liveData.observe(owner, observerWrapper);
-            logger.log(Level.INFO, "observe sticky observer: " + observerWrapper + "(" + observer + ")"
-                    + " on owner: " + owner + " with key: " + key);
+            logger.log(Level.INFO, "observe sticky observer: %s(%s) on owner: %s with key: %s",
+                    observerWrapper, observer, owner, key);
         }
 
         @MainThread
@@ -419,8 +419,8 @@ public final class LiveEventBusCore {
             observerWrapper.preventNextEvent = liveData.getVersion() > ExternalLiveData.START_VERSION;
             observerMap.put(observer, observerWrapper);
             liveData.observeForever(observerWrapper);
-            logger.log(Level.INFO, "observe forever observer: " + observerWrapper + "(" + observer + ")"
-                    + " with key: " + key);
+            logger.log(Level.INFO, "observe forever observer: %s(%s) with key: %s",
+                    observerWrapper, observer, key);
         }
 
         @MainThread
@@ -428,8 +428,8 @@ public final class LiveEventBusCore {
             ObserverWrapper<T> observerWrapper = new ObserverWrapper<>(observer);
             observerMap.put(observer, observerWrapper);
             liveData.observeForever(observerWrapper);
-            logger.log(Level.INFO, "observe sticky forever observer: " + observerWrapper + "(" + observer + ")"
-                    + " with key: " + key);
+            logger.log(Level.INFO, "observe sticky forever observer: %s(%s) with key: %s",
+                    observerWrapper, observer, key);
         }
 
         @MainThread
@@ -462,7 +462,7 @@ public final class LiveEventBusCore {
                 if (autoClear() && !liveData.hasObservers()) {
                     LiveEventBusCore.get().bus.remove(key);
                 }
-                logger.log(Level.INFO, "observer removed: " + observer);
+                logger.log(Level.INFO, "observer removed: %s", observer);
             }
 
             private boolean lifecycleObserverAlwaysActive() {
@@ -535,13 +535,13 @@ public final class LiveEventBusCore {
                 preventNextEvent = false;
                 return;
             }
-            logger.log(Level.INFO, "message received: " + t);
+            logger.log(Level.INFO, "message received: %s", t);
             try {
                 observer.onChanged(t);
             } catch (ClassCastException e) {
-                logger.log(Level.WARNING, "class cast error on message received: " + t, e);
+                logger.log(Level.WARNING, "class cast error on message received: %s", t, e);
             } catch (Exception e) {
-                logger.log(Level.WARNING, "error on message received: " + t, e);
+                logger.log(Level.WARNING, "error on message received: %s", t, e);
             }
         }
     }
